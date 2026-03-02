@@ -2,11 +2,11 @@ package Exercise5;
 
 public class Exercise4 {
 	public static void main(String[] args) throws InterruptedException {
-        final long[] result = {0};
+        final long[] result = {0}; //back to
 
         Thread t = new Thread(() -> {
             long sum = 0;
-            for(long i = 1; i <= 1_000_000_000L; i++) {
+            for(long i = 1; i <= 1_000_000_000L; i++) { //loops 1 billion
                 sum +=i;
             }
             result[0]= sum;});

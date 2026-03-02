@@ -1,7 +1,7 @@
 package Exercise5;
 
 class BankAccount {
-	private int balance = 1000;
+	private int balance = 1000;  //it starts with 1000
 	
 	public synchronized void withdraw(int amount) {
 
@@ -20,6 +20,7 @@ public class Exercise3{
 	public static void main(String[] args) {
 		BankAccount account = new BankAccount();
 		
+		//couples try to withdraw 700 same time
 		Thread husband = new Thread(() -> account.withdraw(700), "Husband");
 		Thread wife = new Thread(() -> account.withdraw(700), "Wife");
 		

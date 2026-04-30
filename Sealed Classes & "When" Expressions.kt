@@ -16,7 +16,7 @@ fun printStatus(status: EnrollmentStatus) {
 
 fun main() {
 
-    val successStatus = Success("CS101")
+    val successStatus = Success("CMP269")
     val errorStatus = Error("Course is full")
 
     printStatus(successStatus)

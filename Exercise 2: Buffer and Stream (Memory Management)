@@ -6,19 +6,10 @@ import java.io.ByteArrayOutputStream
 fun generateQRCodeStream(text: String):ByteArrayOutputStream {
 
     val qrCodeWriter = QRCodeWriter()
-    val bitMatrix = qrCodeWriter.encode(
-        text,
-        BarcodeFormat.QR_CODE,
-        300,
-        300
-    )
+    val bitMatrix = qrCodeWriter.encode(text,BarcodeFormat.QR_CODE,300,300)
 
     val outputStream =ByteArrayOutputStream() //RUN
-    MatrixToImageWriter.writeToStream(
-        bitMatrix,
-        "PNG",
-        outputStream
-    )
+    MatrixToImageWriter.writeToStream(bitMatrix,"PNG",outputStream)
 
     return outputStream
 }

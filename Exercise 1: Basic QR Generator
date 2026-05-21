@@ -8,26 +8,14 @@ import java.nio.file.Path
 fun saveQRCode(content: String, fileName: String) {
 
     val qrCodeWriter = QRCodeWriter()
-    val bitMatrix = qrCodeWriter.encode(
-        content,
-        BarcodeFormat.QR_CODE,
-        300,
-        300
-    )
+    val bitMatrix = qrCodeWriter.encode(content,BarcodeFormat.QR_CODE,300,300)
 
     val path: Path = FileSystems.getDefault().getPath(fileName)
 
-    MatrixToImageWriter.writeToPath(
-        bitMatrix,
-        "PNG",
-        path
-    )
+    MatrixToImageWriter.writeToPath(bitMatrix,"PNG",path)
 }
 
 fun main() {
-    saveQRCode(
-        "MY_email@lehman.cuny.edu",
-        "my_email.png"
-    )
+    saveQRCode("MY_email@lehman.cuny.edu","my_email.png")
     println("QR Code has saved!")
 }

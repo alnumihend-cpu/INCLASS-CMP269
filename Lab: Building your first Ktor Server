@@ -36,29 +36,19 @@ fun main() {
             get("/greet/{name}") {
 
                 val name = call.parameters["name"]
-                call.respondText(
-                    "Hello, $name! Welcome to CMP 269."
-                )
+                call.respondText("Hello, $name! Welcome to CMP 269.")
             }
 
             // Exercise 3
             get("/grade/{studentId}") {
-                val grades = mapOf(
-                    "123" to 95,
-                    "456" to 82
-                )
+                val grades = mapOf("123" to 95,"456" to 82)
                 val studentId = call.parameters["studentId"]
                 val grade = grades[studentId]
 
-                if (grade != null) {
-                    call.respondText(
-                        "Student ID:$studentId, Grade:$grade"
-                    )
+                if(grade != null) {
+                    call.respondText("Student ID:$studentId, Grade:$grade")
                 } else {
-                    call.respond(
-                        HttpStatusCode.NotFound,
-                        "Student not found"
-                    )
+                    call.respond(HttpStatusCode.NotFound,"Student not found")
                 }
             }
 
@@ -68,13 +58,9 @@ fun main() {
             // Exercise 5
             get("/api/stock/{symbol}") {
 
-                val symbol =
-                    call.parameters["symbol"] ?: "AAPL"
+                val symbol = call.parameters["symbol"] ?: "AAPL"
 
-                val stockObject = Stock(
-                    symbol,
-                    150.25
-                )
+                val stockObject = Stock(symbol,150.25)
                 call.respond(stockObject)
             }
         }
